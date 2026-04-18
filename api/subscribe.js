@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+const { randomBytes } = require("crypto");
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
@@ -22,7 +22,7 @@ module.exports = async function handler(req, res) {
   }
 
   const cleanEmail = email.trim().toLowerCase();
-  const token = crypto.randomUUID();
+  const token = randomBytes(32).toString("hex");
 
   // 1. Save to Supabase with unsubscribe token
   const dbRes = await fetch(`${SUPABASE_URL}/rest/v1/website_subscribers`, {
