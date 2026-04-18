@@ -138,6 +138,64 @@
   .footer-links a:hover { color: var(--teal); }
   .footer-copy { font-size: 12px; color: var(--cream3); }
 
+  /* PDF TEASER */
+  .pdf-section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .pdf-mockup {
+    position: relative; display: flex; justify-content: center;
+  }
+  .pdf-cover {
+    width: 220px;
+    background: linear-gradient(145deg, #0d2420 0%, #0a1a17 100%);
+    border: 1px solid rgba(61,203,165,0.25);
+    border-radius: 8px;
+    padding: 32px 24px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5), -4px -4px 20px rgba(61,203,165,0.05);
+    position: relative;
+  }
+  .pdf-cover::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 4px; background: var(--teal); border-radius: 0 2px 2px 0; opacity: 0.6;
+  }
+  .pdf-cover-brand { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream3); margin-bottom: 24px; }
+  .pdf-cover-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: var(--teal); line-height: 1; letter-spacing: -0.04em; }
+  .pdf-cover-title { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--cream); line-height: 1.3; margin-bottom: 20px; }
+  .pdf-cover-rule { width: 32px; height: 2px; background: var(--teal); margin-bottom: 20px; }
+  .pdf-cover-sub { font-size: 10px; color: var(--cream3); line-height: 1.5; }
+  .pdf-pages {
+    position: absolute; top: 6px; right: -8px;
+    width: 220px; height: calc(100% - 12px);
+    background: #0d2420; border-radius: 8px; border: 1px solid rgba(61,203,165,0.1);
+    z-index: -1;
+  }
+  .pdf-pages2 {
+    position: absolute; top: 12px; right: -16px;
+    width: 220px; height: calc(100% - 24px);
+    background: #102b26; border-radius: 8px; border: 1px solid rgba(61,203,165,0.06);
+    z-index: -2;
+  }
+  .pdf-badge {
+    position: absolute; top: -16px; right: -16px;
+    background: var(--teal2); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(29,158,117,0.4);
+  }
+  .pdf-content { display: flex; flex-direction: column; gap: 0; }
+  .pdf-free-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+  .pdf-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 44px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .pdf-headline em { font-style: italic; color: var(--teal); }
+  .pdf-body { font-size: 16px; color: var(--cream2); line-height: 1.7; margin-bottom: 28px; }
+  .pdf-features { list-style: none; padding: 0; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+  .pdf-features li { font-size: 14px; color: var(--cream2); display: flex; align-items: flex-start; gap: 10px; }
+  .pdf-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+  .pdf-form { display: flex; gap: 12px; flex-wrap: wrap; max-width: 420px; }
+  .pdf-form input { flex: 1; min-width: 200px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.15); border-radius: 100px; padding: 14px 24px; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+  .pdf-form input:focus { border-color: var(--teal); }
+  .pdf-form input::placeholder { color: var(--cream3); }
+  .pdf-form button { background: var(--teal2); border: none; border-radius: 100px; padding: 14px 24px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+  .pdf-form button:hover { background: var(--teal); }
+  .pdf-note { font-size: 12px; color: var(--cream3); margin-top: 12px; }
+
   /* SUCCESS */
   .success-msg { display: none; color: var(--teal); font-size: 14px; margin-top: 12px; animation: fadeUp 0.4s ease both; }
 
@@ -152,6 +210,8 @@
     .section { padding: 64px 24px; }
     .ig-section { grid-template-columns: 1fr; margin: 0 24px 64px; padding: 48px 32px; }
     .ig-preview { display: none; }
+    .pdf-section { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+    .pdf-mockup { margin-bottom: 8px; }
     footer { flex-direction: column; text-align: center; padding: 32px 24px; }
   }
 </style>
@@ -187,12 +247,12 @@
   </div>
   <h1 class="hero-headline">Small moves.<br><em>Lifetime change.</em></h1>
   <p class="hero-sub">The science of short. Daily micro training research that proves you don't need an hour — you need intensity, in moments you're already living.</p>
-  <form class="hero-form" onsubmit="handleSignup(event, 'hero-success')">
-    <input type="email" id="hero-email" placeholder="Your email address" required>
-    <button type="submit">Get daily insights</button>
+  <form class="hero-form" onsubmit="handleSignup(event, 'hero-success', this)">
+    <input type="email" name="email" placeholder="Your email address" required>
+    <button type="submit">Get free guide</button>
   </form>
-  <p class="success-msg" id="hero-success">You're in. Daily research on its way.</p>
-  <p class="hero-note">Free. No spam. Unsubscribe anytime.</p>
+  <p class="success-msg" id="hero-success">Check your inbox — your free 309-day guide is on its way.</p>
+  <p class="hero-note">Free forever. Includes the 309-day PDF. No spam.</p>
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num">3.4<span style="font-size:20px;">min</span></div>
@@ -271,6 +331,41 @@
 
 <div class="divider"></div>
 
+<!-- PDF TEASER -->
+<div class="pdf-section">
+  <div class="pdf-mockup">
+    <div class="pdf-pages2"></div>
+    <div class="pdf-pages"></div>
+    <div class="pdf-cover">
+      <div class="pdf-badge">FREE</div>
+      <div class="pdf-cover-brand">Muviko</div>
+      <div class="pdf-cover-num">309</div>
+      <div class="pdf-cover-title">Days of Micro<br>Training Science</div>
+      <div class="pdf-cover-rule"></div>
+      <div class="pdf-cover-sub">10 months · 44 weeks<br>Research-backed · Daily actions</div>
+    </div>
+  </div>
+  <div class="pdf-content">
+    <div class="pdf-free-tag">Free when you subscribe</div>
+    <h2 class="pdf-headline">309 days of science,<br><em>in one guide.</em></h2>
+    <p class="pdf-body">The moment you subscribe, this guide lands in your inbox — completely free. 10 months of research-backed weekly themes, daily actions, and the habit tracker to make it permanent.</p>
+    <ul class="pdf-features">
+      <li>10 monthly themes — from heart defense to brain performance</li>
+      <li>44 weekly breakdowns with daily actions grounded in real studies</li>
+      <li>Printable 309-day habit tracker</li>
+      <li>The 3 studies that started the micro training movement</li>
+    </ul>
+    <form class="pdf-form" onsubmit="handleSignup(event, 'pdf-success', this)">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit">Send me the guide</button>
+    </form>
+    <p class="success-msg" id="pdf-success">Check your inbox — your free guide is on its way.</p>
+    <p class="pdf-note">Free forever. No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- BLOG PREVIEW -->
 <div id="blog-preview">
   <div class="section">
@@ -334,14 +429,14 @@
 <!-- EMAIL SIGNUP -->
 <section class="email-section" id="join">
   <div class="email-glow"></div>
-  <p class="section-label" style="margin-bottom:16px;">Stay in the loop</p>
-  <h2 class="email-headline">The science,<br>in your inbox.<br><em>Daily.</em></h2>
-  <p class="email-body">One research insight per day. Takes 90 seconds to read.<br>Changes how you think about movement.</p>
-  <form class="email-form" onsubmit="handleSignup(event, 'email-success')">
-    <input type="email" id="email-input" placeholder="Your email address" required>
-    <button type="submit">Join free</button>
+  <p class="section-label" style="margin-bottom:16px;">Free for subscribers</p>
+  <h2 class="email-headline">Get the guide.<br><em>Free.</em> Today.</h2>
+  <p class="email-body">Subscribe and we'll send your 309-day guide instantly.<br>Plus one research insight every morning. 90 seconds to read.</p>
+  <form class="email-form" onsubmit="handleSignup(event, 'email-success', this)">
+    <input type="email" name="email" placeholder="Your email address" required>
+    <button type="submit">Send me the free guide</button>
   </form>
-  <p class="success-msg" id="email-success">You're in. Daily research on its way.</p>
+  <p class="success-msg" id="email-success">Check your inbox — your free 309-day guide is on its way.</p>
   <p style="font-size:12px;color:var(--cream3);margin-top:16px;">Free forever. No spam. Unsubscribe anytime.</p>
 </section>
 
@@ -358,12 +453,35 @@
 </footer>
 
 <script>
-function handleSignup(e, successId) {
+async function handleSignup(e, successId, form) {
   e.preventDefault();
-  const emailInput = e.target.querySelector('input[type="email"]');
-  document.getElementById(successId).style.display = 'block';
-  emailInput.value = '';
-  console.log('Signup:', emailInput.value);
+  const btn = form.querySelector('button');
+  const input = form.querySelector('input[type="email"]');
+  const email = input.value.trim();
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (data.ok || res.ok) {
+      document.getElementById(successId).style.display = 'block';
+      form.style.display = 'none';
+    } else {
+      btn.disabled = false;
+      btn.textContent = btn.dataset.label || 'Try again';
+      alert('Something went wrong. Please try again.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = btn.dataset.label || 'Try again';
+    alert('Network error. Please try again.');
+  }
 }
 
 // Load latest blog posts
