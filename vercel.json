@@ -3,5 +3,9 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/blog", "destination": "/blog/index.html" }
+  ],
+  "crons": [
+    { "path": "/api/newsletter-send", "schedule": "0 8 * * *" },
+    { "path": "/api/monthly-unlock",  "schedule": "0 9 * * *" }
   ]
 }
