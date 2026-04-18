@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muviko — Micro Training. Maximum Impact.</title>
+<meta name="description" content="The science of short. Daily research-backed micro training insights that actually change how you move. No gym required.">
+<meta property="og:title" content="Muviko — Micro Training. Maximum Impact.">
+<meta property="og:description" content="Daily research-backed micro training insights. No gym required.">
+<meta property="og:url" content="https://muviko.app">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a1a17;
+    --bg2: #0d2420;
+    --bg3: #102b26;
+    --cream: #f0ede6;
+    --cream2: rgba(240,237,230,0.7);
+    --cream3: rgba(240,237,230,0.35);
+    --teal: #3dcba5;
+    --teal2: #1d9e75;
+    --teal3: rgba(61,203,165,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--cream); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 24px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,26,23,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--cream); letter-spacing: 0.02em; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: var(--cream2); font-size: 13px; font-weight: 400; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { background: transparent; border: 1px solid rgba(61,203,165,0.4); color: var(--teal) !important; padding: 8px 20px; border-radius: 100px; transition: all 0.2s !important; }
+  .nav-cta:hover { background: var(--teal3) !important; border-color: var(--teal) !important; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden; }
+  .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+  .hero-glow2 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(61,203,165,0.08) 0%, transparent 70%); top: 20%; right: 10%; pointer-events: none; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(61,203,165,0.35); padding: 6px 16px; border-radius: 100px; margin-bottom: 40px; animation: fadeUp 0.8s ease both; }
+  .hero-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+  .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(52px, 8vw, 96px); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 28px; animation: fadeUp 0.8s ease 0.1s both; }
+  .hero-headline em { font-style: italic; color: var(--teal); }
+  .hero-sub { font-size: clamp(16px, 2vw, 20px); color: var(--cream2); line-height: 1.7; max-width: 520px; margin: 0 auto 56px; animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; max-width: 480px; width: 100%; animation: fadeUp 0.8s ease 0.3s both; }
+  .hero-form input { flex: 1; min-width: 220px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.15); border-radius: 100px; padding: 14px 24px; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+  .hero-form input::placeholder { color: var(--cream3); }
+  .hero-form input:focus { border-color: var(--teal); }
+  .hero-form button { background: var(--teal2); border: none; border-radius: 100px; padding: 14px 28px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: background 0.2s, transform 0.1s; }
+  .hero-form button:hover { background: var(--teal); }
+  .hero-form button:active { transform: scale(0.98); }
+  .hero-note { font-size: 12px; color: var(--cream3); margin-top: 16px; letter-spacing: 0.04em; animation: fadeUp 0.8s ease 0.4s both; }
+  .hero-stats { display: flex; gap: 48px; justify-content: center; margin-top: 80px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.5s both; }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--teal); line-height: 1; }
+  .hero-stat-label { font-size: 12px; color: var(--cream3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+
+  /* DIVIDER */
+  .divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(61,203,165,0.2), transparent); }
+
+  /* SECTIONS */
+  .section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .section-headline em { font-style: italic; color: var(--teal); }
+  .section-body { font-size: 17px; color: var(--cream2); line-height: 1.75; max-width: 580px; }
+
+  /* STATS GRID */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; margin-top: 64px; border: 1px solid rgba(61,203,165,0.12); border-radius: 20px; overflow: hidden; }
+  .stat-card { background: var(--bg2); padding: 48px 40px; transition: background 0.2s; }
+  .stat-card:hover { background: var(--bg3); }
+  .stat-card-num { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--teal); line-height: 1; letter-spacing: -0.03em; }
+  .stat-card-label { font-size: 15px; color: var(--cream2); line-height: 1.5; margin-top: 12px; }
+  .stat-card-source { font-size: 11px; color: var(--cream3); letter-spacing: 0.06em; margin-top: 16px; text-transform: uppercase; }
+
+  /* HOW IT WORKS */
+  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 64px; }
+  .how-num { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: rgba(61,203,165,0.2); line-height: 1; margin-bottom: 16px; }
+  .how-title { font-size: 18px; font-weight: 500; color: var(--cream); margin-bottom: 10px; }
+  .how-body { font-size: 14px; color: var(--cream2); line-height: 1.65; }
+
+  /* INSTAGRAM CTA */
+  .ig-section { margin: 0 48px 100px; border-radius: 24px; background: var(--bg2); border: 1px solid rgba(61,203,165,0.12); padding: 80px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .ig-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+  .ig-headline em { font-style: italic; color: var(--teal); }
+  .ig-body { font-size: 16px; color: var(--cream2); line-height: 1.7; margin-bottom: 32px; }
+  .ig-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--teal2); color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+  .ig-btn:hover { background: var(--teal); }
+  .ig-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ig-card { background: var(--bg3); border: 1px solid rgba(61,203,165,0.1); border-radius: 12px; padding: 24px; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .ig-card-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(61,203,165,0.4); border-radius: 3px; padding: 2px 7px; width: fit-content; }
+  .ig-card-stat { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--teal); line-height: 1; }
+  .ig-card-label { font-size: 11px; color: var(--cream2); line-height: 1.4; margin-top: 4px; }
+  .ig-card-src { font-size: 9px; color: var(--cream3); letter-spacing: 0.06em; }
+
+  /* BLOG PREVIEW */
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+  .blog-card { background: var(--bg2); border: 1px solid rgba(61,203,165,0.1); border-radius: 16px; padding: 32px; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s; display: flex; flex-direction: column; gap: 12px; }
+  .blog-card:hover { border-color: rgba(61,203,165,0.35); background: var(--bg3); }
+  .blog-card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+  .blog-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--cream); }
+  .blog-card-date { font-size: 12px; color: var(--cream3); }
+  .blog-card-excerpt { font-size: 14px; color: var(--cream2); line-height: 1.65; flex: 1; }
+  .blog-card-arrow { font-size: 13px; color: var(--teal); letter-spacing: 0.06em; margin-top: 8px; }
+  .blog-view-all { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; color: var(--teal); font-size: 14px; text-decoration: none; border-bottom: 1px solid rgba(61,203,165,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .blog-view-all:hover { border-color: var(--teal); }
+
+  /* EMAIL */
+  .email-section { text-align: center; padding: 100px 48px; position: relative; overflow: hidden; }
+  .email-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(29,158,117,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+  .email-headline { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .email-headline em { font-style: italic; color: var(--teal); }
+  .email-body { font-size: 17px; color: var(--cream2); line-height: 1.7; margin-bottom: 40px; }
+  .email-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; max-width: 480px; margin: 0 auto; }
+  .email-form input { flex: 1; min-width: 220px; background: rgba(240,237,230,0.06); border: 1px solid rgba(240,237,230,0.15); border-radius: 100px; padding: 14px 24px; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
+  .email-form input:focus { border-color: var(--teal); }
+  .email-form input::placeholder { color: var(--cream3); }
+  .email-form button { background: var(--teal2); border: none; border-radius: 100px; padding: 14px 28px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .email-form button:hover { background: var(--teal); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid rgba(61,203,165,0.1); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--cream); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; color: var(--cream3); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-copy { font-size: 12px; color: var(--cream3); }
+
+  /* SUCCESS */
+  .success-msg { display: none; color: var(--teal); font-size: 14px; margin-top: 12px; animation: fadeUp 0.4s ease both; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .section { padding: 64px 24px; }
+    .ig-section { grid-template-columns: 1fr; margin: 0 24px 64px; padding: 48px 32px; }
+    .ig-preview { display: none; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+      <path d="M18 72 Q18 46 40 46 Q62 46 62 24" stroke="#3dcba5" stroke-width="8" stroke-linecap="round"/>
+      <path d="M33 72 Q33 52 53 52 Q73 52 73 33" stroke="#4fd4ac" stroke-width="6.5" stroke-linecap="round" opacity="0.75"/>
+      <path d="M47 72 Q47 57 65 57 Q83 57 83 42" stroke="#62ddb8" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M60 72 Q60 62 75 62 Q90 62 90 51" stroke="#78e6c4" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+    </svg>
+    <span class="nav-logo-text">Muviko</span>
+  </a>
+  <div class="nav-links">
+    <a href="#research">Research</a>
+    <a href="#how">How it works</a>
+    <a href="/blog">Blog</a>
+    <a href="https://instagram.com/muviko.app" target="_blank" rel="noopener">Instagram</a>
+    <a href="#join" class="nav-cta">Get updates</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-tag">
+    <span class="hero-tag-dot"></span>
+    Research-backed · Daily insights
+  </div>
+  <h1 class="hero-headline">Move less.<br><em>Gain more.</em></h1>
+  <p class="hero-sub">The science of short. Daily micro training research that proves you don't need an hour — you need intensity, in moments you're already living.</p>
+  <form class="hero-form" onsubmit="handleSignup(event, 'hero-success')">
+    <input type="email" id="hero-email" placeholder="Your email address" required>
+    <button type="submit">Get daily insights</button>
+  </form>
+  <p class="success-msg" id="hero-success">You're in. Daily research on its way.</p>
+  <p class="hero-note">Free. No spam. Unsubscribe anytime.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">3.4<span style="font-size:20px;">min</span></div>
+      <div class="hero-stat-label">daily minimum dose</div>
+    </div>
+    <div class="hero-stat" style="border-left:1px solid rgba(61,203,165,0.15);border-right:1px solid rgba(61,203,165,0.15);padding:0 48px;">
+      <div class="hero-stat-num">−51%</div>
+      <div class="hero-stat-label">heart attack risk</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2025</div>
+      <div class="hero-stat-label">latest research</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RESEARCH -->
+<div id="research">
+  <div class="section">
+    <p class="section-label">The science</p>
+    <h2 class="section-headline">Short is the new <em>strong.</em></h2>
+    <p class="section-body">Decades of research show that brief, intense bursts of movement reshape your health in ways that long, reluctant workouts never could. Here's what the data says.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-num">−51%</div>
+        <div class="stat-card-label">lower heart attack risk from just 3.4 minutes of vigorous daily movement</div>
+        <div class="stat-card-source">BJSM · 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">−32%</div>
+        <div class="stat-card-label">cancer risk reduction from 4.5 minutes of vigorous lifestyle activity per day</div>
+        <div class="stat-card-source">JAMA Oncology · 2023</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">3×</div>
+        <div class="stat-card-label">higher consistency vs. traditional long workouts in adherence studies</div>
+        <div class="stat-card-source">JSCR · 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<div id="how">
+  <div class="section">
+    <p class="section-label">How it works</p>
+    <h2 class="section-headline">Built into your day.<br><em>Not added to it.</em></h2>
+    <div class="how-grid">
+      <div class="how-item">
+        <div class="how-num">01</div>
+        <div class="how-title">We find the research</div>
+        <div class="how-body">Every day, we scan the latest peer-reviewed studies on micro training, exercise snacks, and movement science — and find the one finding worth knowing.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">02</div>
+        <div class="how-title">We translate it</div>
+        <div class="how-body">No jargon. No fluff. Just the stat, what it means for you, and one concrete thing you can do with it — in under two minutes of reading.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">03</div>
+        <div class="how-title">You move smarter</div>
+        <div class="how-body">The best workout isn't the longest. It's the one you actually do — and the science backs that up more than most people realize.</div>
+      </div>
+      <div class="how-item">
+        <div class="how-num">04</div>
+        <div class="how-title">Every single day</div>
+        <div class="how-body">Consistency is the only variable that matters. We show up daily so you can build the habit of knowing — even on days you don't move.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOG PREVIEW -->
+<div id="blog-preview">
+  <div class="section">
+    <p class="section-label">Research blog</p>
+    <h2 class="section-headline">Daily deep dives.<br><em>Zero fluff.</em></h2>
+    <p class="section-body">Every study we cover gets a full breakdown — the methodology, the numbers, and exactly what it means for how you move.</p>
+    <div class="blog-grid" id="blog-preview-grid">
+      <!-- populated by JS from articles.json -->
+    </div>
+    <a href="/blog" class="blog-view-all">View all articles →</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INSTAGRAM CTA -->
+<div class="ig-section">
+  <div>
+    <p class="section-label">@muviko.app</p>
+    <h2 class="ig-headline">Daily research.<br><em>Zero fluff.</em></h2>
+    <p class="ig-body">Every morning, a new carousel breaks down one micro training study — the stat, the science, and what it means for your day. Follow along on Instagram.</p>
+    <a href="https://instagram.com/muviko.app" target="_blank" rel="noopener" class="ig-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Follow @muviko.app
+    </a>
+  </div>
+  <div class="ig-preview">
+    <div class="ig-card">
+      <div class="ig-card-tag">Micro Training</div>
+      <div>
+        <div class="ig-card-stat">−51%</div>
+        <div class="ig-card-label">heart attack risk from 3.4 min/day</div>
+        <div class="ig-card-src" style="margin-top:8px">BJSM · 2025</div>
+      </div>
+    </div>
+    <div class="ig-card" style="background:rgba(29,158,117,0.08);">
+      <div class="ig-card-tag">The science</div>
+      <div>
+        <div class="ig-card-stat">−32%</div>
+        <div class="ig-card-label">cancer risk from 4.5 min daily</div>
+        <div class="ig-card-src" style="margin-top:8px">JAMA · 2023</div>
+      </div>
+    </div>
+    <div class="ig-card">
+      <div class="ig-card-tag">Daily</div>
+      <div>
+        <div class="ig-card-stat">3×</div>
+        <div class="ig-card-label">more consistent than long workouts</div>
+        <div class="ig-card-src" style="margin-top:8px">JSCR · 2023</div>
+      </div>
+    </div>
+    <div class="ig-card" style="border:1px solid rgba(61,203,165,0.3);display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:11px;color:var(--teal);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Follow for more</div>
+        <div style="font-size:13px;color:var(--cream3);margin-top:6px;">@muviko.app</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL SIGNUP -->
+<section class="email-section" id="join">
+  <div class="email-glow"></div>
+  <p class="section-label" style="margin-bottom:16px;">Stay in the loop</p>
+  <h2 class="email-headline">The science,<br>in your inbox.<br><em>Daily.</em></h2>
+  <p class="email-body">One research insight per day. Takes 90 seconds to read.<br>Changes how you think about movement.</p>
+  <form class="email-form" onsubmit="handleSignup(event, 'email-success')">
+    <input type="email" id="email-input" placeholder="Your email address" required>
+    <button type="submit">Join free</button>
+  </form>
+  <p class="success-msg" id="email-success">You're in. Daily research on its way.</p>
+  <p style="font-size:12px;color:var(--cream3);margin-top:16px;">Free forever. No spam. Unsubscribe anytime.</p>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="footer-logo">Muviko</div>
+  <div class="footer-links">
+    <a href="/blog">Blog</a>
+    <a href="https://instagram.com/muviko.app" target="_blank">Instagram</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">© 2026 Muviko. All rights reserved.</div>
+</footer>
+
+<script>
+function handleSignup(e, successId) {
+  e.preventDefault();
+  const emailInput = e.target.querySelector('input[type="email"]');
+  document.getElementById(successId).style.display = 'block';
+  emailInput.value = '';
+  console.log('Signup:', emailInput.value);
+}
+
+// Load latest blog posts
+async function loadBlogPreview() {
+  try {
+    const res = await fetch('/articles.json');
+    const articles = await res.json();
+    const grid = document.getElementById('blog-preview-grid');
+    const latest = articles.slice(0, 3);
+    grid.innerHTML = latest.map(a => `
+      <a class="blog-card" href="/articles/${a.slug}.html">
+        <div class="blog-card-tag">Micro Training</div>
+        <div class="blog-card-title">${a.title}</div>
+        <div class="blog-card-date">${formatDate(a.date)}</div>
+        <div class="blog-card-excerpt">${a.excerpt}</div>
+        <div class="blog-card-arrow">Read article →</div>
+      </a>
+    `).join('');
+  } catch(e) {
+    document.getElementById('blog-preview').style.display = 'none';
+  }
+}
+
+function formatDate(d) {
+  return new Date(d).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+}
+
+loadBlogPreview();
+</script>
+</body>
+</html>
