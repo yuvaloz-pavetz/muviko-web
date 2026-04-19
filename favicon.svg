@@ -3,4 +3,5 @@
   <path d="M18 72 Q18 46 40 46 Q62 46 62 24" stroke="#3dcba5" stroke-width="8" stroke-linecap="round" fill="none"/>
   <path d="M33 72 Q33 52 53 52 Q73 52 73 33" stroke="#4fd4ac" stroke-width="6.5" stroke-linecap="round" fill="none" opacity="0.75"/>
   <path d="M47 72 Q47 57 65 57 Q83 57 83 42" stroke="#62ddb8" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M60 72 Q60 62 75 62 Q90 62 90 51" stroke="#78e6c4" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.35"/>
 </svg>

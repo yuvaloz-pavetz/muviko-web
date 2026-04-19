@@ -138,6 +138,35 @@
   .footer-links a:hover { color: var(--teal); }
   .footer-copy { font-size: 12px; color: var(--cream3); }
 
+  /* LIFESTYLE PHOTOS */
+  .photos-section { padding: 80px 48px 0; max-width: 1100px; margin: 0 auto; }
+  .photos-label { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  .photos-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 48px; }
+  .photos-headline em { font-style: italic; color: var(--teal); }
+  .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .photo-card {
+    border-radius: 20px; overflow: hidden; position: relative;
+    aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px 24px;
+  }
+  .photo-card-scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,26,23,0.92) 0%, rgba(10,26,23,0.3) 60%, transparent 100%);
+  }
+  .photo-card-content { position: relative; z-index: 1; }
+  .photo-card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .photo-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--cream); line-height: 1.25; }
+  .photo-card-note { font-size: 13px; color: var(--cream2); margin-top: 6px; line-height: 1.5; }
+  @media (max-width: 768px) {
+    .photos-grid { grid-template-columns: 1fr; }
+    .photo-card { aspect-ratio: 4/3; }
+    .photos-section { padding: 64px 24px 0; }
+  }
+
   /* PDF TEASER */
   .pdf-section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .pdf-mockup {
@@ -251,8 +280,8 @@
     <input type="email" name="email" placeholder="Your email address" required>
     <button type="submit">Get free guide</button>
   </form>
-  <p class="success-msg" id="hero-success">Check your inbox — your free 309-day guide is on its way.</p>
-  <p class="hero-note">Free forever. Includes the 309-day PDF. No spam.</p>
+  <p class="success-msg" id="hero-success">Check your inbox — your free 30-day guide is on its way.</p>
+  <p class="hero-note">Free forever. Includes the 30-day guide. No spam.</p>
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="hero-stat-num">3.4<span style="font-size:20px;">min</span></div>
@@ -323,13 +352,112 @@
       <div class="how-item">
         <div class="how-num">04</div>
         <div class="how-title">Every single day</div>
-        <div class="how-body">Consistency is the only variable that matters. We show up daily so you can build the habit of knowing — even on days you don't move.</div>
+        <div class="how-body">Consistency is the only variable that matters. We show up daily so you keep showing up too — because the habit of moving is built one small action at a time.</div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="divider"></div>
+
+<!-- LIFESTYLE PHOTOS -->
+<div class="photos-section">
+  <p class="photos-label">Micro training in the wild</p>
+  <h2 class="photos-headline">Fits into the life<br>you're <em>already living.</em></h2>
+  <div class="photos-grid">
+
+    <!-- Card 1: Stairwell -->
+    <div class="photo-card">
+      <div class="photo-card-scene" style="background: linear-gradient(135deg, #0d2a26 0%, #102e28 50%, #0a1f1c 100%);">
+        <svg width="200" height="320" viewBox="0 0 200 320" fill="none" style="opacity:0.55;">
+          <!-- Staircase steps -->
+          <path d="M20 280 L20 240 L60 240 L60 200 L100 200 L100 160 L140 160 L140 120 L180 120" stroke="#3dcba5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Person on stairs, mid-stride -->
+          <circle cx="152" cy="96" r="18" stroke="#3dcba5" stroke-width="4"/>
+          <path d="M152 114 Q148 148 145 168" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
+          <path d="M148 132 Q128 122 116 126" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <path d="M148 132 Q164 120 174 114" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <path d="M145 168 Q135 196 126 218" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
+          <path d="M145 168 Q156 196 164 214" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
+          <!-- Motion lines -->
+          <path d="M106 180 L82 180" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <path d="M110 194 L90 194" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-content">
+        <div class="photo-card-tag">2 min · No equipment</div>
+        <div class="photo-card-title">The office stairwell is your gym</div>
+        <div class="photo-card-note">3 flights, 3× a day. That's your cardio.</div>
+      </div>
+    </div>
+
+    <!-- Card 2: Desk stretch -->
+    <div class="photo-card" style="margin-top: 40px;">
+      <div class="photo-card-scene" style="background: linear-gradient(135deg, #0e2822 0%, #0b2018 50%, #102a24 100%);">
+        <svg width="220" height="340" viewBox="0 0 220 340" fill="none" style="opacity:0.55;">
+          <!-- Desk -->
+          <path d="M20 210 L200 210" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
+          <path d="M40 210 L40 250" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
+          <path d="M180 210 L180 250" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
+          <!-- Monitor -->
+          <rect x="72" y="150" width="76" height="52" rx="4" stroke="#3dcba5" stroke-width="3"/>
+          <path d="M100 202 L100 215 M120 202 L120 215 M88 215 L132 215" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Person sitting, arm stretch overhead -->
+          <circle cx="110" cy="96" r="20" stroke="#3dcba5" stroke-width="4"/>
+          <path d="M110 116 Q108 155 106 175" stroke="#3dcba5" stroke-width="6" stroke-linecap="round"/>
+          <!-- Arm raised up (stretch) -->
+          <path d="M108 138 Q90 108 78 88 Q72 78 76 70" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <!-- Other arm on desk -->
+          <path d="M108 138 Q128 148 148 152" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <!-- Sparkle at raised hand -->
+          <circle cx="74" cy="68" r="5" fill="#3dcba5" opacity="0.6"/>
+          <path d="M68 62 L80 74 M80 62 L68 74" stroke="#3dcba5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-content">
+        <div class="photo-card-tag">90 sec · At your desk</div>
+        <div class="photo-card-title">Between calls. Not after work.</div>
+        <div class="photo-card-note">Shoulder rolls, neck circles, overhead reach. Done.</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Walking -->
+    <div class="photo-card">
+      <div class="photo-card-scene" style="background: linear-gradient(135deg, #091a17 0%, #0d2420 50%, #0b1f1c 100%);">
+        <svg width="200" height="320" viewBox="0 0 200 320" fill="none" style="opacity:0.55;">
+          <!-- Path / pavement lines -->
+          <path d="M100 320 L100 180" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 12" opacity="0.4"/>
+          <!-- Three walking people at different scales for depth -->
+          <!-- Back person (small) -->
+          <circle cx="80" cy="148" r="10" stroke="#3dcba5" stroke-width="2.5"/>
+          <path d="M80 158 Q78 175 77 186" stroke="#3dcba5" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M78 165 Q68 170 62 173" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M78 165 Q88 168 94 165" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M77 186 Q72 200 68 210" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
+          <path d="M77 186 Q82 200 86 208" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
+          <!-- Front person (large) -->
+          <circle cx="116" cy="86" r="22" stroke="#3dcba5" stroke-width="4"/>
+          <path d="M116 108 Q113 155 110 185" stroke="#3dcba5" stroke-width="6" stroke-linecap="round"/>
+          <path d="M113 135 Q92 148 76 155" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <path d="M113 135 Q132 122 148 116" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
+          <path d="M110 185 Q98 218 88 248" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
+          <path d="M110 185 Q122 218 130 246" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-content">
+        <div class="photo-card-tag">Anytime · Anywhere</div>
+        <div class="photo-card-title">Walk with purpose, not permission</div>
+        <div class="photo-card-note">Lunch break. Phone call. Coffee run. All count.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider" style="margin-top: 80px;"></div>
 
 <!-- PDF TEASER -->
 <div class="pdf-section">
@@ -339,20 +467,20 @@
     <div class="pdf-cover">
       <div class="pdf-badge">FREE</div>
       <div class="pdf-cover-brand">Muviko</div>
-      <div class="pdf-cover-num">309</div>
+      <div class="pdf-cover-num">30</div>
       <div class="pdf-cover-title">Days of Micro<br>Training Science</div>
       <div class="pdf-cover-rule"></div>
-      <div class="pdf-cover-sub">10 months · 44 weeks<br>Research-backed · Daily actions</div>
+      <div class="pdf-cover-sub">4 weeks · Daily actions<br>Research-backed · Habit tracker</div>
     </div>
   </div>
   <div class="pdf-content">
     <div class="pdf-free-tag">Free when you subscribe</div>
-    <h2 class="pdf-headline">309 days of science,<br><em>in one guide.</em></h2>
-    <p class="pdf-body">The moment you subscribe, this guide lands in your inbox — completely free. 10 months of research-backed weekly themes, daily actions, and the habit tracker to make it permanent.</p>
+    <h2 class="pdf-headline">30 days of science,<br><em>in one guide.</em></h2>
+    <p class="pdf-body">The moment you subscribe, this guide lands in your inbox — completely free. 30 days of research-backed daily actions, weekly themes, and the habit tracker to make movement stick.</p>
     <ul class="pdf-features">
-      <li>10 monthly themes — from heart defense to brain performance</li>
-      <li>44 weekly breakdowns with daily actions grounded in real studies</li>
-      <li>Printable 309-day habit tracker</li>
+      <li>4 weekly themes — from heart health to energy and endurance</li>
+      <li>30 daily actions, each grounded in peer-reviewed research</li>
+      <li>Printable 30-day habit tracker</li>
       <li>The 3 studies that started the micro training movement</li>
     </ul>
     <form class="pdf-form" onsubmit="handleSignup(event, 'pdf-success', this)">
@@ -436,7 +564,7 @@
     <input type="email" name="email" placeholder="Your email address" required>
     <button type="submit">Send me the free guide</button>
   </form>
-  <p class="success-msg" id="email-success">Check your inbox — your free 309-day guide is on its way.</p>
+  <p class="success-msg" id="email-success">Check your inbox — your free 30-day guide is on its way.</p>
   <p style="font-size:12px;color:var(--cream3);margin-top:16px;">Free forever. No spam. Unsubscribe anytime.</p>
 </section>
 
