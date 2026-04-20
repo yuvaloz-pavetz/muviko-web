@@ -107,8 +107,10 @@
 
   /* BLOG PREVIEW */
   .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
-  .blog-card { background: var(--bg2); border: 1px solid rgba(61,203,165,0.1); border-radius: 16px; padding: 32px; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s; display: flex; flex-direction: column; gap: 12px; }
+  .blog-card { background: var(--bg2); border: 1px solid rgba(61,203,165,0.1); border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s; display: flex; flex-direction: column; }
   .blog-card:hover { border-color: rgba(61,203,165,0.35); background: var(--bg3); }
+  .blog-card-img { width: 100%; height: 180px; object-fit: cover; object-position: center; display: block; }
+  .blog-card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
   .blog-card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
   .blog-card-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--cream); }
   .blog-card-date { font-size: 12px; color: var(--cream3); }
@@ -149,13 +151,13 @@
     aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: flex-end;
     padding: 28px 24px;
   }
-  .photo-card-scene {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
+  .photo-card-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
   }
   .photo-card-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,26,23,0.92) 0%, rgba(10,26,23,0.3) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(6,14,12,0.95) 0%, rgba(6,14,12,0.5) 50%, rgba(6,14,12,0.1) 100%);
   }
   .photo-card-content { position: relative; z-index: 1; }
   .photo-card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
@@ -368,22 +370,7 @@
 
     <!-- Card 1: Stairwell -->
     <div class="photo-card">
-      <div class="photo-card-scene" style="background: linear-gradient(135deg, #0d2a26 0%, #102e28 50%, #0a1f1c 100%);">
-        <svg width="200" height="320" viewBox="0 0 200 320" fill="none" style="opacity:0.55;">
-          <!-- Staircase steps -->
-          <path d="M20 280 L20 240 L60 240 L60 200 L100 200 L100 160 L140 160 L140 120 L180 120" stroke="#3dcba5" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Person on stairs, mid-stride -->
-          <circle cx="152" cy="96" r="18" stroke="#3dcba5" stroke-width="4"/>
-          <path d="M152 114 Q148 148 145 168" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
-          <path d="M148 132 Q128 122 116 126" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <path d="M148 132 Q164 120 174 114" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <path d="M145 168 Q135 196 126 218" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
-          <path d="M145 168 Q156 196 164 214" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
-          <!-- Motion lines -->
-          <path d="M106 180 L82 180" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-          <path d="M110 194 L90 194" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
-        </svg>
-      </div>
+      <img class="photo-card-img" src="/assets/homepage-stairwell.jpg" alt="Professional sprinting up office stairs" loading="lazy">
       <div class="photo-card-overlay"></div>
       <div class="photo-card-content">
         <div class="photo-card-tag">2 min · No equipment</div>
@@ -394,27 +381,7 @@
 
     <!-- Card 2: Desk stretch -->
     <div class="photo-card" style="margin-top: 40px;">
-      <div class="photo-card-scene" style="background: linear-gradient(135deg, #0e2822 0%, #0b2018 50%, #102a24 100%);">
-        <svg width="220" height="340" viewBox="0 0 220 340" fill="none" style="opacity:0.55;">
-          <!-- Desk -->
-          <path d="M20 210 L200 210" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
-          <path d="M40 210 L40 250" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
-          <path d="M180 210 L180 250" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
-          <!-- Monitor -->
-          <rect x="72" y="150" width="76" height="52" rx="4" stroke="#3dcba5" stroke-width="3"/>
-          <path d="M100 202 L100 215 M120 202 L120 215 M88 215 L132 215" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Person sitting, arm stretch overhead -->
-          <circle cx="110" cy="96" r="20" stroke="#3dcba5" stroke-width="4"/>
-          <path d="M110 116 Q108 155 106 175" stroke="#3dcba5" stroke-width="6" stroke-linecap="round"/>
-          <!-- Arm raised up (stretch) -->
-          <path d="M108 138 Q90 108 78 88 Q72 78 76 70" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <!-- Other arm on desk -->
-          <path d="M108 138 Q128 148 148 152" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <!-- Sparkle at raised hand -->
-          <circle cx="74" cy="68" r="5" fill="#3dcba5" opacity="0.6"/>
-          <path d="M68 62 L80 74 M80 62 L68 74" stroke="#3dcba5" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-        </svg>
-      </div>
+      <img class="photo-card-img" src="/assets/homepage-desk-stretch.jpg" alt="Professional stretching at standing desk" loading="lazy">
       <div class="photo-card-overlay"></div>
       <div class="photo-card-content">
         <div class="photo-card-tag">90 sec · At your desk</div>
@@ -425,27 +392,7 @@
 
     <!-- Card 3: Walking -->
     <div class="photo-card">
-      <div class="photo-card-scene" style="background: linear-gradient(135deg, #091a17 0%, #0d2420 50%, #0b1f1c 100%);">
-        <svg width="200" height="320" viewBox="0 0 200 320" fill="none" style="opacity:0.55;">
-          <!-- Path / pavement lines -->
-          <path d="M100 320 L100 180" stroke="#1d9e75" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 12" opacity="0.4"/>
-          <!-- Three walking people at different scales for depth -->
-          <!-- Back person (small) -->
-          <circle cx="80" cy="148" r="10" stroke="#3dcba5" stroke-width="2.5"/>
-          <path d="M80 158 Q78 175 77 186" stroke="#3dcba5" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M78 165 Q68 170 62 173" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M78 165 Q88 168 94 165" stroke="#3dcba5" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M77 186 Q72 200 68 210" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
-          <path d="M77 186 Q82 200 86 208" stroke="#3dcba5" stroke-width="3" stroke-linecap="round"/>
-          <!-- Front person (large) -->
-          <circle cx="116" cy="86" r="22" stroke="#3dcba5" stroke-width="4"/>
-          <path d="M116 108 Q113 155 110 185" stroke="#3dcba5" stroke-width="6" stroke-linecap="round"/>
-          <path d="M113 135 Q92 148 76 155" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <path d="M113 135 Q132 122 148 116" stroke="#3dcba5" stroke-width="4" stroke-linecap="round"/>
-          <path d="M110 185 Q98 218 88 248" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
-          <path d="M110 185 Q122 218 130 246" stroke="#3dcba5" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-      </div>
+      <img class="photo-card-img" src="/assets/homepage-walking.jpg" alt="Professional walking briskly through city" loading="lazy">
       <div class="photo-card-overlay"></div>
       <div class="photo-card-content">
         <div class="photo-card-tag">Anytime · Anywhere</div>
@@ -621,11 +568,14 @@ async function loadBlogPreview() {
     const latest = articles.slice(0, 3);
     grid.innerHTML = latest.map(a => `
       <a class="blog-card" href="/articles/${a.slug}.html">
-        <div class="blog-card-tag">Micro Training</div>
-        <div class="blog-card-title">${a.title}</div>
-        <div class="blog-card-date">${formatDate(a.date)}</div>
-        <div class="blog-card-excerpt">${a.excerpt}</div>
-        <div class="blog-card-arrow">Read article →</div>
+        ${a.image ? `<img class="blog-card-img" src="${a.image}" alt="${a.title}" loading="lazy">` : ''}
+        <div class="blog-card-body">
+          <div class="blog-card-tag">Micro Training</div>
+          <div class="blog-card-title">${a.title}</div>
+          <div class="blog-card-date">${formatDate(a.date)}</div>
+          <div class="blog-card-excerpt">${a.excerpt}</div>
+          <div class="blog-card-arrow">Read article →</div>
+        </div>
       </a>
     `).join('');
   } catch(e) {
